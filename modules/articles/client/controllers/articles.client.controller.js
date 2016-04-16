@@ -20,6 +20,7 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
         title: this.title,
         content: this.content,
         info: this.info,
+        number: this.number,
       });
 
       // Redirect after save
@@ -30,6 +31,7 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
         $scope.title = '';
         $scope.content = '';
         $scope.info = '';
+        $scope.number = '';
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
       });

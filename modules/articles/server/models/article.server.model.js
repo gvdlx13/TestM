@@ -30,6 +30,11 @@ var ArticleSchema = new Schema({
     default: '',
     trim: true
   },
+  number: {
+    type: Number,
+    default: 0,
+    trim: true
+  },
   user: {
     type: Schema.ObjectId,
     ref: 'User'
