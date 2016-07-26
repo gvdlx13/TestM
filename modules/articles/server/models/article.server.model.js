@@ -9,6 +9,20 @@ var mongoose = require('mongoose'),
 /**
  * Article Schema
  */
+var testSubSchema = new Schema({
+
+  reading:{
+    type: Number,
+    default: 0,
+    required: 'Must have a Reading'
+  },
+  recorded: {
+    type: Date,
+    default: Date.now
+  }
+});
+
+
 var ArticleSchema = new Schema({
   created: {
     type: Date,
@@ -38,7 +52,8 @@ var ArticleSchema = new Schema({
   user: {
     type: Schema.ObjectId,
     ref: 'User'
-  }
+  },
+  reader: [testSubSchema]
 });
 
 mongoose.model('Article', ArticleSchema);

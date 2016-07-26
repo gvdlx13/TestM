@@ -13,6 +13,7 @@
       <h4 class="list-group-item-heading" ng-bind="article.title"></h4>
       <p class="list-group-item-text" ng-bind="article.content"></p>
       <p class="list-group-item-text" ng-bind="article.info"></p>
+      <p class="list-group-item-text" ng-bind="article.number"></p>
     </a>
   </div>
   <div class="alert alert-warning text-center" ng-if="articles.$resolved && !articles.length">

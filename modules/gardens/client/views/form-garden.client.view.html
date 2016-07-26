@@ -1,0 +1,28 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.garden._id ? 'Edit Garden' : 'New Garden'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.gardenForm" class="form-horizontal" ng-submit="vm.save(vm.form.gardenForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Name</label>
+          <input name="name" type="text" ng-model="vm.garden.name" id="name" class="form-control" placeholder="Name" required>
+          <div ng-messages="vm.form.gardenForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Garden name is required.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="test">Test</label>
+          <textarea name="test" ng-model="vm.garden.test" class="form-control" id="test" cols="1"rows="2" placeholder="Sweet!"></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.garden._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

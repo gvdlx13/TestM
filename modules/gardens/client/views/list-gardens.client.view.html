@@ -1,0 +1,24 @@
+<section>
+  <div class="page-header">
+    <h1>Gardens</h1>
+  </div>
+  <div class="list-group">
+    <a data-ng-repeat="garden in vm.gardens"
+       data-ui-sref="gardens.view({ gardenId: garden._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span data-ng-bind="garden.created | date:'mediumDate'"></span>
+        by
+        <span data-ng-if="garden.user" data-ng-bind="garden.user.displayName"></span>
+        <span data-ng-if="!garden.user">Deleted User</span>
+
+      </small>
+      <h4 class="list-group-item-heading" data-ng-bind="garden.test"></h4>
+      <h4 class="list-group-item-heading" data-ng-bind="garden.name"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" data-ng-if="vm.gardens.$resolved && !vm.gardens.length">
+    No Gardens yet, why don't you <a data-ui-sref="gardens.create">create one</a>?
+  </div>
+</section>

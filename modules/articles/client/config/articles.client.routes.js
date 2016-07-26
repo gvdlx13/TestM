@@ -31,6 +31,13 @@ angular.module('articles').config(['$stateProvider',
         data: {
           roles: ['user', 'admin']
         }
+      })
+      .state('articles.addTest', {
+        url: '/:articleId/addTest',
+        templateUrl: 'modules/articles/client/views/addTest-article.client.view.html',
+        data: {
+          roles: ['user', 'admin']
+        }
       });
   }
 ]);

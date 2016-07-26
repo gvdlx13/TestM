@@ -21,7 +21,13 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
         content: this.content,
         info: this.info,
         number: this.number,
+        reader:[]
       });
+
+
+
+
+
 
       // Redirect after save
       article.$save(function (response) {
@@ -32,6 +38,7 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
         $scope.content = '';
         $scope.info = '';
         $scope.number = '';
+
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
       });
@@ -71,6 +78,19 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
       });
+      console.log('add sweet ' + isValid);
+    };
+
+    $scope.addreading = function(isValid){
+      var article = $scope.article;
+      console.log(isValid);
+      if (!isValid) {
+        console.log('don\'t add sweet ' + $scope.reading +' ' + article._id);
+
+        return false;
+      }
+      console.log('add sweet ' + $scope.reading +' ' + article._id);
+
     };
 
     // Find a list of Articles
